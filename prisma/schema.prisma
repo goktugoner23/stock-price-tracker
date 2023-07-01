@@ -1,0 +1,37 @@
+// prisma/schema.prisma
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  output        = "../node_modules/.prisma/client"
+  binaryTargets = ["native"]
+}
+
+model User {
+  id       Int         @id @default(autoincrement())
+  email    String      @unique
+  password String
+  stocks   UserStock[]
+}
+
+model Stock {
+  id        Int         @id @default(autoincrement())
+  symbol    String
+  name      String
+  // Add any other relevant fields for a stock
+  UserStock UserStock[]
+}
+
+model UserStock {
+  id      Int   @id @default(autoincrement())
+  user    User  @relation(fields: [userId], references: [id])
+  userId  Int
+  stock   Stock @relation(fields: [stockId], references: [id])
+  stockId Int
+
+  @@unique([userId, stockId])
+}
