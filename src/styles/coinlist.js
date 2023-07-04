@@ -21,6 +21,11 @@ const styles = {
       flexDirection: "column",
       alignItems: "center",
     },
+    pagination: {
+      display: "flex",
+      justifyContent: "center",
+      marginTop: "20px",
+    },
   };
   
   export default styles;
