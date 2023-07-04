@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { setCookie } from "nookies";
 
 async function registerUser(email, password) {
     const response = await fetch("/api/register", {

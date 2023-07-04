@@ -2,7 +2,6 @@
 
 import prisma from "../../utils/prismadb";
 import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
 
 export default async function handler(req, res) {
     if (req.method !== "POST") {
@@ -29,8 +28,7 @@ export default async function handler(req, res) {
         const user = await prisma.user.create({
             data: { 
                 email, 
-                password: hashedPassword, 
-                stocks: [], // Initialize an empty watchlist
+                password: hashedPassword,
             },
         });
 
