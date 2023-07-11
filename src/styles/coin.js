@@ -59,6 +59,24 @@ const coinStyles = {
         width: '500px',
       },
     },
+    "favorite-button": {
+      position: "absolute",
+      top: "10px",
+      left: "10px",
+      background: "transparent",
+      border: "none",
+      cursor: "pointer",
+      zIndex: "1",
+      padding: "0",
+      outline: "none",
+      boxShadow: "none",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    favorite: {
+      color: "#FFD700", // Set your desired golden color
+    },
   };
   
   export default coinStyles;
